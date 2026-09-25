@@ -15,18 +15,20 @@
 5. **Break 重做**: 稀疏长音里插入 pickup 单元格预告（"motto motto"），间奏也洗脑；
 6. **收束 fanfare**: 段落头钟琴 A5-C#6-E6 上行三和弦（宝可梦捕获 fanfare 式手势，原创）。
 
-## 虚拟歌姬歌唱版（新增）
+## 虚拟歌姬歌唱版（新增，已含成品音频）
 
 | 文件 | 用途 |
 |---|---|
-| `vocal_project.ust` | **OpenUTAU / UTAU 直接打开**，日文假名已逐音填好（含休止），选好声库即可导出人声 wav |
+| **`04_…_有人声版.mp3`** | **成品可播放**：NEUTRINO 琴葉葵(AOI) 主唱 + 三度和声叠 v4 音墙伴奏 |
+| `vocal_project.ust` | OpenUTAU / UTAU 直接打开，假名逐音填好（含休止），换声库重唱用 |
 | `vocal_lead.mid` | 纯主旋律 MIDI（SynthV/VOCALOID 用户导入用） |
 | `lyrics_v4.txt` | 全词假名 + 分段标注 |
 
+- 歌手: 琴葉葵 (Kotonoha Aoi, NEUTRINO Tau v3 扩散模型, GPU 渲染 43s)，
+  主唱链 HP85→存在感 EQ→轻混响，和声 HP140→Haas 展宽 -70%；
 - 歌词主题: 电光火花×冒险出发（びりびり ひかって きみと いく…），假名一音一符；
-- 人声版做法: OpenUTAU 渲染 `vocal_project.ust` → 人声 wav 与 `complete.mp3` 对齐
-  （同为 160bpm，从头对齐即可）→ DAW 里人声 -6dB 叠在伴奏上；
-- 声库建议: 日文 CV 或 中文声库均可（UST 为 UTF-8，OpenUTAU 原生支持）。
+- 换人声: 改 `_compose\song4_v4_vocal.py` 的 VOICE = 'MERROW'（中性少年音）等重跑即可；
+- 时间轴与伴奏 0 偏移对齐（MusicXML 绝对拍=工程绝对拍）。
 
 ## 编曲层（沿用 v3 音墙）
 
