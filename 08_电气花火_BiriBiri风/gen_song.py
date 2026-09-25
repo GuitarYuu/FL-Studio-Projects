@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""04「电气花火」 v3 —— 音墙版 (YOASOBI「BiriBiri」风 × 宝可梦)
+"""04「电气花火」 v4 —— 洗脑钩子版 (YOASOBI「BiriBiri」风 × 宝可梦)
 A 大调 160bpm | v2 钩子/曲式保留, 编曲按 BiriBiri 的"音墙"思路全面加厚:
   [双手钢琴墙] 左手八度泵 8分+每4小节一次上行琶音 run; 右手 16 分和弦脉冲无气口
   [锯齿和弦墙] 副歌持续/脉冲锯齿 6 声部, 现代 J-pop 的"满"
@@ -14,13 +14,13 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from midilib import *
 
-rng = make_rng(20260930)
+rng = make_rng(20261001)
 BPM = 160
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '04_电气花火_BiriBiri风_complete.mid')
 OUT_VOCAL = os.path.join(HERE, 'vocal_lead.mid')
 
-p = Piece('电气花火 v3 (BiriBiri风格致敬)', BPM, key='A')
+p = Piece('电气花火 v4 (BiriBiri风格致敬)', BPM, key='A')
 lead = p.add(Trk('Lead Vocal', 81, 3, vol=114, pan=64, reverb=40))
 harm = p.add(Trk('Lead Harmony', 52, 11, vol=78, pan=64, reverb=48))
 dbl = p.add(Trk('Lead Double', 80, 4, vol=66, pan=64, reverb=32))
@@ -56,43 +56,59 @@ SECS = [
 ]
 
 MEL_A = [
-    (0, 0, 0.5, 'C#5', 88), (0, 0.5, 0.5, 'C#5', 82), (0, 1, 0.5, 'B4', 86), (0, 1.5, 0.5, 'A4', 84), (0, 2, 2, 'F#4', 86),
-    (1, 0, 0.5, 'A4', 84), (1, 0.5, 0.5, 'B4', 86), (1, 1, 1, 'C#5', 88), (1, 2, 0.5, 'D5', 90), (1, 2.5, 0.5, 'C#5', 86), (1, 3, 1, 'B4', 88),
-    (2, 0, 0.5, 'B4', 86), (2, 0.5, 0.5, 'C#5', 88), (2, 1, 1, 'E5', 92), (2, 2, 1.5, 'E5', 90), (2, 3.5, 0.5, 'D5', 84),
-    (3, 0, 0.5, 'C#5', 88), (3, 0.5, 0.5, 'B4', 84), (3, 1, 2, 'A4', 90), (3, 3, 1, 'G#4', 82),
-    (4, 0, 0.5, 'C#5', 88), (4, 0.5, 0.5, 'C#5', 82), (4, 1, 0.5, 'B4', 86), (4, 1.5, 0.5, 'A4', 84), (4, 2, 2, 'F#4', 86),
-    (5, 0, 0.5, 'A4', 84), (5, 0.5, 0.5, 'B4', 86), (5, 1, 1, 'C#5', 88), (5, 2, 0.5, 'D5', 90), (5, 2.5, 0.5, 'C#5', 86), (5, 3, 1, 'B4', 88),
-    (6, 0, 0.5, 'D5', 90), (6, 0.5, 0.5, 'C#5', 88), (6, 1, 1, 'E5', 92), (6, 2, 2, 'F#5', 96),
-    (7, 0, 0.5, 'E5', 92), (7, 0.5, 0.5, 'D5', 88), (7, 1, 0.5, 'C#5', 90), (7, 1.5, 0.5, 'B4', 86), (7, 2, 2, 'C#5', 92),
+    (0, 0, 0.5, 'C#5', 88), (0, 0.5, 0.5, 'C#5', 82), (0, 1, 1, 'A4', 86), (0, 2, 0.5, 'B4', 84), (0, 2.5, 0.5, 'C#5', 86), (0, 3, 1, 'A4', 88),
+    (1, 0, 1, 'F#4', 86), (1, 1, 0.5, 'G#4', 82), (1, 1.5, 0.5, 'A4', 84), (1, 2, 2, 'B4', 88),
+    (2, 0, 0.5, 'C#5', 88), (2, 0.5, 0.5, 'C#5', 82), (2, 1, 1, 'A4', 86), (2, 2, 0.5, 'B4', 84), (2, 2.5, 0.5, 'C#5', 86), (2, 3, 1, 'E5', 90),
+    (3, 0, 1, 'D5', 90), (3, 1, 0.5, 'C#5', 86), (3, 1.5, 0.5, 'B4', 84), (3, 2, 2, 'C#5', 88),
+    (4, 0, 0.5, 'C#5', 88), (4, 0.5, 0.5, 'C#5', 82), (4, 1, 1, 'A4', 86), (4, 2, 0.5, 'B4', 84), (4, 2.5, 0.5, 'C#5', 86), (4, 3, 1, 'A4', 88),
+    (5, 0, 1, 'F#4', 86), (5, 1, 0.5, 'G#4', 82), (5, 1.5, 0.5, 'A4', 84), (5, 2, 2, 'B4', 88),
+    (6, 0, 0.5, 'C#5', 88), (6, 0.5, 0.5, 'C#5', 82), (6, 1, 1, 'A4', 86), (6, 2, 0.5, 'B4', 84), (6, 2.5, 0.5, 'C#5', 86), (6, 3, 1, 'E5', 90),
+    (7, 0, 1, 'D5', 90), (7, 1, 0.5, 'C#5', 86), (7, 1.5, 0.5, 'B4', 84), (7, 2, 0.5, 'A4', 86), (7, 2.5, 0.5, 'B4', 86), (7, 3, 2, 'B4', 90),
 ]
-MEL_A2 = MEL_A[:33] + [
-    (6, 0, 2, 'F#5', 96), (6, 2, 1, 'E5', 90), (6, 3, 1, 'D5', 86),
-    (7, 0, 0.5, 'E5', 92), (7, 0.5, 0.5, 'D5', 88), (7, 1, 2, 'C#5', 92),
+MEL_A2 = MEL_A[:36] + [
+    (7, 0, 1, 'D5', 90), (7, 1, 0.5, 'C#5', 86), (7, 1.5, 0.5, 'B4', 84),
+    (7, 2, 0.5, 'A4', 86), (7, 2.5, 0.5, 'G#4', 84), (7, 3, 1.5, 'B4', 90),
 ]
 MEL_PRE = [
-    (0, 0, 1, 'A4', 88), (0, 1, 1, 'B4', 90), (0, 2, 2, 'D5', 94),
-    (1, 0, 1, 'D5', 92), (1, 1, 1, 'E5', 94), (1, 2, 2, 'E5', 94),
-    (2, 0, 0.5, 'E5', 94), (2, 0.5, 0.5, 'F#5', 96), (2, 1, 2.5, 'F#5', 98),
-    (3, 0, 1.5, 'E5', 96), (3, 1.5, 0.5, 'D5', 92), (3, 2, 0.5, 'C#5', 92),
-    (3, 2.5, 0.5, 'B4', 92), (3, 3, 0.5, 'A4', 92), (3, 3.5, 0.5, 'B4', 94),
+    (0, 0, 1, 'A4', 88), (0, 1, 1, 'B4', 90), (0, 2, 1, 'C#5', 92), (0, 3, 1, 'D5', 94),
+    (1, 0, 0.5, 'E5', 94), (1, 0.5, 0.5, 'E5', 88), (1, 1, 0.5, 'F#5', 94), (1, 1.5, 0.5, 'F#5', 88),
+    (1, 2, 0.5, 'E5', 92), (1, 2.5, 0.5, 'D5', 90), (1, 3, 1, 'C#5', 92),
+    (2, 0, 1, 'D5', 92), (2, 1, 1, 'E5', 94), (2, 2, 2, 'F#5', 98),
+    (3, 0, 1.5, 'F#5', 96), (3, 1.5, 0.5, 'G#5', 92), (3, 2, 0.5, 'A5', 98),
+    (3, 2.5, 0.5, 'G#5', 92), (3, 3, 0.5, 'F#5', 94), (3, 3.5, 0.5, 'E5', 96),
 ]
 MEL_B = [
-    (0, 0, 0.5, 'E5', 98), (0, 0.5, 0.5, 'E5', 92), (0, 1, 0.5, 'D5', 96), (0, 1.5, 0.5, 'C#5', 94), (0, 2, 1.5, 'B4', 96),
-    (1, 0, 0.5, 'C#5', 94), (1, 0.5, 0.5, 'C#5', 88), (1, 1, 0.5, 'B4', 92), (1, 1.5, 0.5, 'A4', 90), (1, 2, 2, 'B4', 94),
-    (2, 0, 0.5, 'E5', 98), (2, 0.5, 0.5, 'E5', 92), (2, 1, 0.5, 'D5', 96), (2, 1.5, 0.5, 'C#5', 94), (2, 2, 1.5, 'B4', 96),
-    (3, 0, 0.5, 'A4', 92), (3, 0.5, 0.5, 'B4', 94), (3, 1, 0.5, 'C#5', 96), (3, 1.5, 0.5, 'A4', 92), (3, 2, 2, 'E5', 98),
-    (4, 0, 0.5, 'E5', 98), (4, 0.5, 0.5, 'E5', 92), (4, 1, 0.5, 'D5', 96), (4, 1.5, 0.5, 'C#5', 94), (4, 2, 1.5, 'B4', 96),
-    (5, 0, 0.5, 'C#5', 94), (5, 0.5, 0.5, 'C#5', 88), (5, 1, 0.5, 'B4', 92), (5, 1.5, 0.5, 'A4', 90), (5, 2, 2, 'B4', 94),
-    (6, 0, 0.5, 'E5', 98), (6, 0.5, 0.5, 'E5', 92), (6, 1, 0.5, 'F#5', 100), (6, 1.5, 0.5, 'E5', 96), (6, 2, 1.5, 'D5', 96),
-    (7, 0, 0.5, 'C#5', 94), (7, 0.5, 0.5, 'B4', 92), (7, 1, 0.5, 'A4', 94), (7, 1.5, 0.5, 'B4', 94), (7, 2, 2, 'C#5', 98),
+    (0, 0, 0.25, 'E5', 100), (0, 0.25, 0.25, 'E5', 92), (0, 0.5, 0.5, 'E5', 98),
+    (0, 1, 0.5, 'D5', 96), (0, 1.5, 0.5, 'C#5', 94), (0, 2, 2, 'B4', 98),
+    (1, 0, 0.5, 'C#5', 94), (1, 0.5, 0.5, 'C#5', 88), (1, 1, 1, 'B4', 94),
+    (1, 2, 0.5, 'A4', 90), (1, 2.5, 0.5, 'B4', 92), (1, 3, 1, 'C#5', 96),
+    (2, 0, 0.25, 'E5', 100), (2, 0.25, 0.25, 'E5', 92), (2, 0.5, 0.5, 'E5', 98),
+    (2, 1, 0.5, 'D5', 96), (2, 1.5, 0.5, 'C#5', 94), (2, 2, 2, 'D5', 98),
+    (3, 0, 0.5, 'E5', 96), (3, 0.5, 0.5, 'D5', 92), (3, 1, 0.5, 'C#5', 94),
+    (3, 1.5, 0.5, 'D5', 94), (3, 2, 2, 'E5', 100),
+    (4, 0, 0.25, 'E5', 100), (4, 0.25, 0.25, 'E5', 92), (4, 0.5, 0.5, 'E5', 98),
+    (4, 1, 0.5, 'D5', 96), (4, 1.5, 0.5, 'C#5', 94), (4, 2, 2, 'B4', 98),
+    (5, 0, 0.5, 'C#5', 94), (5, 0.5, 0.5, 'C#5', 88), (5, 1, 1, 'B4', 94),
+    (5, 2, 0.5, 'A4', 90), (5, 2.5, 0.5, 'B4', 92), (5, 3, 1, 'C#5', 96),
+    (6, 0, 0.25, 'E5', 100), (6, 0.25, 0.25, 'E5', 92), (6, 0.5, 0.5, 'E5', 98),
+    (6, 1, 0.5, 'D5', 96), (6, 1.5, 0.5, 'C#5', 94), (6, 2, 2, 'D5', 98),
+    (7, 0, 0.5, 'C#5', 96), (7, 0.5, 0.5, 'B4', 92), (7, 1, 0.5, 'A4', 94),
+    (7, 1.5, 0.5, 'B4', 94), (7, 2, 0.5, 'C#5', 96), (7, 2.5, 0.5, 'D5', 98), (7, 3, 1, 'E5', 100),
 ]
-MEL_B_END = (7, 0, 0.5, 'E5', 98), (7, 0.5, 0.5, 'F#5', 100), (7, 1, 0.5, 'G#5', 102), \
+MEL_B_END = (7, 0, 0.5, 'E5', 100), (7, 0.5, 0.5, 'F#5', 98), (7, 1, 0.5, 'G#5', 100), \
             (7, 1.5, 0.5, 'A5', 104), (7, 2, 2.5, 'A5', 104)
 MEL_BRK = [
-    (0, 0, 3.5, 'F#5', 92), (1, 0, 3.5, 'E5', 90), (2, 0, 3.5, 'D5', 90),
-    (3, 0, 1.5, 'C#5', 90), (3, 1.5, 0.5, 'B4', 86), (3, 2, 2, 'C#5', 90),
-    (4, 0, 3.5, 'F#5', 92), (5, 0, 3.5, 'E5', 90), (6, 0, 3.5, 'D5', 90),
-    (7, 0, 1.5, 'C#5', 90), (7, 1.5, 0.5, 'D5', 88), (7, 2, 2, 'E5', 92),
+    (0, 0, 0.25, 'E5', 92), (0, 0.25, 0.25, 'E5', 84), (0, 0.5, 0.5, 'E5', 90),
+    (0, 1, 0.5, 'D5', 88), (0, 1.5, 0.5, 'C#5', 86), (0, 2, 2, 'B4', 90),
+    (1, 0, 3.5, 'A4', 88),
+    (2, 0, 2, 'C#5', 90), (2, 2, 1, 'D5', 90), (2, 3, 1, 'E5', 92),
+    (3, 0, 3.5, 'E5', 92),
+    (4, 0, 0.25, 'E5', 92), (4, 0.25, 0.25, 'E5', 84), (4, 0.5, 0.5, 'E5', 90),
+    (4, 1, 0.5, 'D5', 88), (4, 1.5, 0.5, 'C#5', 86), (4, 2, 2, 'B4', 90),
+    (5, 0, 3.5, 'A4', 88),
+    (6, 0, 2, 'E5', 92), (6, 2, 0.5, 'F#5', 94), (6, 2.5, 0.5, 'G#5', 96), (6, 3, 1, 'A5', 98),
+    (7, 0, 2, 'F#5', 96), (7, 2, 0.5, 'E5', 92), (7, 2.5, 0.5, 'D5', 90),
+    (7, 3, 0.5, 'C#5', 92), (7, 3.5, 0.5, 'B4', 94),
 ]
 RIFF = [
     (0, 0.0, 0.2, 'A4', 100), (0, 0.5, 0.2, 'A4', 88), (0, 0.75, 0.2, 'B4', 92),
@@ -103,18 +119,18 @@ RIFF = [
     (1, 1.0, 0.2, 'C#5', 96), (1, 1.5, 0.2, 'A4', 98), (1, 2.0, 0.2, 'E4', 92),
     (1, 2.5, 0.2, 'A4', 90), (1, 3.0, 0.2, 'B4', 92), (1, 3.5, 0.3, 'C#5', 96),
 ]
+# 终副歌钟琴对旋律: 每小节第4拍下行火花三连, 末小节上行冲
 COUNTER = [
-    (0, 2.0, 0.5, 'C#6', 76), (0, 2.5, 0.5, 'B5', 72), (0, 3.0, 1, 'A5', 78),
-    (1, 2.0, 0.5, 'E5', 72), (1, 2.5, 0.5, 'F#5', 74), (1, 3.0, 1, 'G#5', 78),
-    (2, 2.0, 0.5, 'A5', 76), (2, 2.5, 0.5, 'G#5', 72), (2, 3.0, 1, 'F#5', 78),
-    (3, 2.0, 0.5, 'E5', 74), (3, 2.5, 0.5, 'F#5', 76), (3, 3.0, 1, 'D5', 78),
-    (4, 2.0, 0.5, 'C#6', 76), (4, 2.5, 0.5, 'B5', 72), (4, 3.0, 1, 'A5', 78),
-    (5, 2.0, 0.5, 'E5', 72), (5, 2.5, 0.5, 'F#5', 74), (5, 3.0, 1, 'G#5', 78),
-    (6, 2.0, 0.5, 'A5', 76), (6, 2.5, 0.5, 'B5', 78), (6, 3.0, 1, 'C#6', 80),
-    (7, 2.0, 0.5, 'D6', 80), (7, 2.5, 0.5, 'C#6', 76), (7, 3.0, 2, 'B5', 82),
+    (0, 3.0, 0.25, 'E6', 82), (0, 3.25, 0.25, 'D6', 78), (0, 3.5, 0.5, 'C#6', 82),
+    (1, 3.0, 0.25, 'E6', 80), (1, 3.25, 0.25, 'D6', 76), (1, 3.5, 0.5, 'B5', 80),
+    (2, 3.0, 0.25, 'F#6', 82), (2, 3.25, 0.25, 'E6', 78), (2, 3.5, 0.5, 'D6', 82),
+    (3, 3.0, 0.25, 'E6', 80), (3, 3.25, 0.25, 'D6', 76), (3, 3.5, 0.5, 'C#6', 80),
+    (4, 3.0, 0.25, 'E6', 82), (4, 3.25, 0.25, 'D6', 78), (4, 3.5, 0.5, 'C#6', 82),
+    (5, 3.0, 0.25, 'F#6', 80), (5, 3.25, 0.25, 'E6', 76), (5, 3.5, 0.5, 'C#6', 80),
+    (6, 3.0, 0.25, 'A6', 84), (6, 3.25, 0.25, 'F#6', 80), (6, 3.5, 0.5, 'E6', 82),
+    (7, 3.0, 0.25, 'C#6', 82), (7, 3.25, 0.25, 'D6', 84), (7, 3.5, 0.25, 'E6', 86), (7, 3.75, 0.25, 'F#6', 88),
 ]
 
-# ---- A 大调三度下方便捷 (和声轨) ----
 _ORDER = [9, 11, 1, 2, 4, 6, 8]
 _SN = sorted(o * 12 + pc for o in range(3, 9) for pc in _ORDER if 40 <= o * 12 + pc <= 100)
 def third_below(m):
@@ -196,12 +212,20 @@ def ooh_pad(oo, b, chord, rng, vel=44, kind='hold'):
 def strings_hit(st, b, chord, rng, vel=50, hold=3.8):
     st.chord(b, hold, chord.voice(low=55, high=79, n=5), hum(rng, vel, 2))
 
-def chops(ch, b, st, rng, vel=54):
-    """vocal chop: 钩子节奏回声 (显式音列, 同音间隔>时值)"""
-    seq = [(0.0, 'E5'), (0.5, 'E5'), (1.0, 'D5'), (1.5, 'C#5'),
-           (2.5, 'B4'), (3.0, 'C#5'), (3.5, 'D5'), (3.75, 'E5')]
+def fanfare(gl, b, st=0, vel=84):
+    """宝可梦式上行三和弦 fanfare (原创造型): A5-C#6-E6 -> A5"""
+    for bt, d, nm, v in [(0.0, 0.25, 'A5', vel), (0.25, 0.25, 'C#6', vel - 6),
+                         (0.5, 0.5, 'E6', vel), (1.0, 1.5, 'A5', vel - 10)]:
+        gl.n(b + bt, d, npitch(nm) + st, v)
+
+
+def chops(ch, b, st, rng, vel=56):
+    """vocal chop: 洗脑 pickup 单元格回声 (E-E-E-D-C#)"""
+    seq = [(0.0, 'E5'), (0.25, 'E5'), (0.5, 'E5'), (1.0, 'D5'), (1.5, 'C#5'),
+           (2.5, 'B4'), (3.0, 'C#5'), (3.5, 'D5')]
     for bt, nm in seq:
         ch.n(b + bt, 0.18, npitch(nm) + st, hum(rng, vel))
+
 
 def drum_v3(dr, b, style, rng, i=0, fill=False):
     if style == 'heartbeat':
@@ -248,13 +272,16 @@ for si, (name, chords_raw, st) in enumerate(SECS):
     cs = [Chord(c).shifted(st) for c in chords_raw]
     nbars = len(cs)
     start = t0
-    chorus = name in ('B1', 'B2', 'B3', 'B3x')
+    chorus = name in ('B1', 'B2', 'B3', 'B3x', 'Outro')
+    ov = 0.8 if name == 'Outro' else 1.0
     for i, c in enumerate(cs):
         b = start + i * 4
         nxt = cs[(i + 1) % nbars]
         if name == 'Intro':
             pad.chord(b, 3.8, c.voice(low=55, high=71, n=4), hum(rng, 42, 2))
             if i < 4:
+                if i == 0:
+                    fanfare(glock, b, st)
                 if i >= 2:
                     drum_v3(dr, b, 'heartbeat', rng)
             else:
@@ -293,17 +320,21 @@ for si, (name, chords_raw, st) in enumerate(SECS):
             if i == 0:
                 strings_hit(strs, b, c, rng, 46)
         elif chorus:
-            piano_wall(piaL, piaR, b, c, nxt, rng, i, run=True, vel=94)
-            bass_drive(bass, b, c, nxt, rng, vel=100, sub=True, slide=(i % 2 == 0))
-            drum_v3(dr, b, 'chorus', rng, i=i, fill=(i == nbars - 1))
-            saw_wall(saw, b, c, rng, i, pulse=(name in ('B3', 'B3x')), vel=48)
+            piano_wall(piaL, piaR, b, c, nxt, rng, i, run=True, vel=int(94 * ov))
+            bass_drive(bass, b, c, nxt, rng, vel=int(100 * ov), sub=True, slide=(i % 2 == 0))
+            drum_v3(dr, b, 'chorus', rng, i=i, fill=(i == nbars - 1 and name != 'Outro'))
+            saw_wall(saw, b, c, rng, i, pulse=(name in ('B3', 'B3x')), vel=int(48 * ov))
             pad.chord(b, 3.8, c.voice(low=55, high=71, n=4), hum(rng, 36, 2))
             if name in ('B1', 'B3') or (name == 'B2' and i < 4):
                 glock_interlock(glock, b, c, rng)
             if i % 2 == 0 and i > 0:
                 strings_hit(strs, b, c, rng, 40, hold=1.8)
             if i == 0:
-                impact(dr, strs, b, c, rng, 1.0)
+                if name == 'Outro':
+                    fanfare(glock, b, st)
+                else:
+                    impact(dr, strs, b, c, rng, 1.0)
+                    fanfare(glock, b, st)
         elif name in ('Post', 'Riff', 'Post2'):
             piano_wall(piaL, piaR, b, c, nxt, rng, i, run=True, vel=88)
             bass_drive(bass, b, c, nxt, rng, vel=92)
@@ -344,7 +375,7 @@ for si, (name, chords_raw, st) in enumerate(SECS):
     elif chorus:
         mel = MEL_B
         if name == 'B3x':
-            mel = MEL_B[:len(MEL_B) - 5] + list(MEL_B_END)
+            mel = MEL_B[:len(MEL_B) - 7] + list(MEL_B_END)
         lead.phrase(start, mel, tr=st)
         dbl.phrase(start, mel, tr=st)
         harm.phrase(start, [(bb, bt, d, third_below(npitch(pp)) + st, v)
@@ -374,9 +405,7 @@ for si, (name, chords_raw, st) in enumerate(SECS):
 for sect in (t0 - 32, t0 - 4):
     stab = Chord('A').shifted(1)
     crash(dr, sect, vel=92)
-    piaL.chord(sect, 3.6, stab.voice(low=58, high=78, n=4), 86)
-    piaR.chord(sect, 3.6, stab.voice(low=64, high=88, n=4), 82)
-    bass.n(sect, 3.6, stab.bass_midi(2), 98)
+    strs.chord(sect, 3.6, stab.voice(low=55, high=79, n=5), 56)
     dr.hits(sect, [(0, 36, 116), (0, 39, 104)])
 
 print(f'bars={int(t0 // 4)}  time={t0 * 60 / BPM:.1f}s  sections={len(SECS)}')
@@ -385,8 +414,117 @@ for trk in p.tracks:
 p.save(OUT)
 print('saved:', os.path.abspath(OUT))
 
-vp = Piece('电气花火 v3 vocal lead (for OpenUTAU/SynthV)', BPM, key='A')
+vp = Piece('电气花火 v4 vocal lead (for OpenUTAU/SynthV)', BPM, key='A')
 vt = vp.add(Trk('Lead Vocal', 0, 0, vol=100, reverb=30))
 vt.events = list(lead.events)
 vp.save(OUT_VOCAL)
 print('saved:', os.path.abspath(OUT_VOCAL), f'({len(vt.events)} notes)')
+
+# ================= 虚拟歌姬 UST 工程 + 歌词 =================
+VERSE1 = [
+    "あ さ の ひ か り", "あ び た ら",
+    "ほ ら す す め ば", "み え る よ",
+    "び り び り き ら", "め く そ ら",
+    "ど こ ま で も い", "け る き が す る",
+]
+VERSE2 = [
+    "ち い さ な て を", "つ な い だ",
+    "き み と す す め", "は る か へ",
+    "び り び り こ え", "き ら め く",
+    "ま ぶ し さ へ と", "は し り だ す よ",
+]
+PRE_L = ["い ま す ぐ", "と び こ え て ゆ く", "は て へ", "ゆ め の つ づ き"]
+HOOK = [
+    "び り び り ひ かっ", "て き み と い く",
+    "ぴ か ぴ か む ね", "の お く へ と",
+    "び り び り ひ かっ", "て ゆ め が は し",
+    "て こ こ ろ が は", "し り だ す よ う に",
+]
+HOOKX = HOOK[:7] + ["き ら め く よ"]
+BRK_L = [
+    "も っ と も っ と", "あ", "は て へ", "あ",
+    "も っ と も っ と", "あ", "い ざ ゆ く", "と び き り の",
+]
+LYRICS = {"A1": VERSE1, "A2": VERSE2, "Pre": PRE_L, "B1": HOOK, "B2": HOOK,
+          "B3": HOOK, "B3x": HOOKX, "Break": BRK_L, "Outro": HOOK}
+
+# 各段起始拍
+_starts, _occ, _t = {}, {}, 0.0
+for _n, _cs, _st in SECS:
+    _i = _occ.get(_n, 0)
+    _starts.setdefault(_n, []).append(_t)
+    _occ[_n] = _i + 1
+    _t += len(_cs) * 4
+
+sung = []   # (start_beat, dur, pitch, mora)
+for name, _cs, _st in SECS:
+    if name not in LYRICS:
+        continue
+    tpl = LYRICS[name]
+    s = _starts[name][0] if name != 'Pre' else _starts['Pre'][0]
+    inst = 0
+    for k, (n2, _c2, _s2) in enumerate(SECS[: [x[0] for x in SECS].index(name) + 1]):
+        if n2 == name:
+            pass
+    # 找第几次出现
+    cnt = [x[0] for x in SECS].count(name)
+    s = _starts[name][0]
+    nbars = len(tpl)
+    notes = sorted([e for e in lead.events if s - 1e-6 <= e[0] < s + nbars * 4])
+    for bar in range(nbars):
+        bn = [e for e in notes if s + bar * 4 <= e[0] < s + (bar + 1) * 4]
+        moras = tpl[bar].split()
+        assert len(bn) == len(moras), (name, bar, len(bn), len(moras), tpl[bar])
+        for (t, d, p, v), m in zip(bn, moras):
+            sung.append((t, d, p, m))
+
+# Pre 第二次出现用同样歌词
+_pre2 = _starts['Pre'][1] if len(_starts.get('Pre', [])) > 1 else None
+if _pre2 is not None:
+    s = _pre2
+    nbars = len(PRE_L)
+    notes = sorted([e for e in lead.events if s - 1e-6 <= e[0] < s + nbars * 4])
+    for bar in range(nbars):
+        bn = [e for e in notes if s + bar * 4 <= e[0] < s + (bar + 1) * 4]
+        moras = PRE_L[bar].split()
+        assert len(bn) == len(moras), ('Pre2', bar, len(bn), len(moras))
+        for (t, d, p, v), m in zip(bn, moras):
+            sung.append((t, d, p, m))
+
+sung.sort()
+ust = ["[#SETTING]", "Tempo=%.2f" % BPM, "Tracks=1",
+       "ProjectName=DianqiHuohua_v4", "VoiceDir="]
+cursor = 0.0
+for t, d, p, m in sung:
+    if t > cursor + 1e-6:
+        ust += ["[#%04d]" % len(ust), "Length=%d" % int(round((t - cursor) * 480)),
+                "Lyric=R", "NoteNum=60"]
+    ust += ["[#%04d]" % len(ust), "Length=%d" % int(round(d * 480)),
+            "Lyric=%s" % m, "NoteNum=%d" % p, "Velocity=80", "Modulation=0"]
+    cursor = t + d
+ust.append("[#TRACKEND]")
+OUT_UST = os.path.join(HERE, 'vocal_project.ust')
+io_open = open
+with io_open(OUT_UST, 'w', encoding='utf-8') as f:
+    f.write(chr(10).join(ust) + chr(10))
+print('saved:', os.path.abspath(OUT_UST), f'({sum(1 for e in sung)} 音, 含休止 {len(ust)} 块)')
+
+# 中文对照歌词
+CN = {
+    "A1": ["晨光中 沐浴过后", "看吧只要前进", "就能看见", "电光闪耀的天", "空", "仿佛哪里都", "能去的感觉"],
+    "B1": ["电光火花 点亮了", "和你一起出发", "闪闪发光 在心中", "的深处", "电光火花 梦想奔跑", "让心也奔跑起来"],
+}
+txt = ["《电气花火 v4》虚拟歌姬歌词对照 (A大调 160bpm)", ""]
+order = [('A1', '主歌1'), ('Pre', '预副歌'), ('B1', '副歌'), ('A2', '主歌2'),
+         ('Pre', '预副歌'), ('B2', '副歌'), ('Break', '间奏'), ('B3', '副歌(升半音)'),
+         ('B3x', '副歌(升半音+对旋律)'), ('Outro', '尾声')]
+for name, label in order:
+    txt.append(f"—— {label} ({name}) ——")
+    for bar in LYRICS[name]:
+        txt.append("  " + bar.replace(" ", ""))
+    txt.append("")
+OUT_LYR = os.path.join(HERE, 'lyrics_v4.txt')
+with io_open(OUT_LYR, 'w', encoding='utf-8') as f:
+    f.write(chr(10).join(txt) + chr(10))
+print('saved:', os.path.abspath(OUT_LYR))
+

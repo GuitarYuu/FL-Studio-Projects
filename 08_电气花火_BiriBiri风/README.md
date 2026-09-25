@@ -1,58 +1,41 @@
-# 04「电气花火」 — YOASOBI「BiriBiri」风格致敬 × 宝可梦（v2 现代日系流行层次重构）
+# 04「电气花火」 — YOASOBI「BiriBiri」风格致敬 × 宝可梦（v4 洗脑钩子版）
 
-- **速度/调/拍**: 150 BPM · A 大调（终段升半音） · 4/4 · 2'54"
-- **版本**: v2（当前）。v1 编曲见 git tag `dianqi-v1`（GitHub）与 `snapshots/v1/` 本地快照。
-  v2 保留 v1 的钩子与曲式骨架，**编曲全部重做**，对标现代日系流行的制作手法。
-- 生成脚本: `_compose\song4_v2.py`；`vocal_lead.mid`（428 音纯主旋律）供 OpenUTAU/SynthV 填词。
+- **速度/调/拍**: 160 BPM · A 大调（终段升半音） · 4/4 · 2'47"
+- **版本**: v4（当前）。v3=tag dianqi-v3（音墙版）、v2=dianqi-v2、v1=dianqi-v1，本地 snapshots/。
+  v4 = v3 的音墙编曲原样保留 + **旋律全面钩子化** + 弱段重做 + 虚拟歌姬歌唱工程。
+- 生成脚本: `_compose\song4_v4.py`
 
-## v2 层次重构的六板斧（对照 v1）
+## v4 旋律的"洗脑上头"设计
 
-1. **声部 register 分离**——贝斯占 40Hz 区、垫/EP 占中音区、钩子在 C5-A5、
-   钟琴答句在 79-95（高音"火花"区），四层频段互不打架；
-2. **侧链泵感**——垫与 EP 改为"重拍压低、反拍回弹"的 4 段包络（`pad_pump`），
-   模拟现代舞曲的 sidechain 呼吸感；
-3. **四小节微变化**——鼓组按小节轮换闭镲/踩镲/开镲轮廓、军鼓鬼音，副歌每第 3 小节
-   加 ghost fill，终段 fill 递增到五件套；
-4. **riser / 抽空**——预副歌末小节镲+军鼓双滚奏渐强且贝斯抽空，Break 末小节
-   全队静默只留主唱爬音，drop 前留半拍真空；
-5. **对钩子（counter-hook）**——钟琴在钩子长音的空拍上插下行 8 分答句
-   （`glock_interlock`）；终副歌换成整条对旋律 `COUNTER`（C#6-A5 线条对钩子）；
-6. **双钢琴位 + 气口**——副歌钢琴拆 L/R 两个声像位交错 16 分，每小节第 4 拍后半
-   留缝给底鼓，律动更"跳"；低频加 sub 八度层 + 落头滑音。
+1. **pickup 音头**: 副歌每句以「E5-E5-E5」三连 16 分起头（"bi-ri-bi"），全曲重复 6 次以上；
+2. **2 小节单元格**: 副歌 = 同一单元格 ×4（仅第 4 次变化收束），主歌 = 4 小节乐句 ×2
+   （仅句尾不同），第一遍就能跟着哼 = 熟悉感；
+3. **五声倾向**: 旋律骨架 A-B-C#-E-F#（A 大调五声），D 只作经过解决——日系熟悉感的来源；
+4. **预副歌节奏阶梯**: 4 分 → 8 分 → 长音加速爬升，接半拍真空后 drop；
+5. **Break 重做**: 稀疏长音里插入 pickup 单元格预告（"motto motto"），间奏也洗脑；
+6. **收束 fanfare**: 段落头钟琴 A5-C#6-E6 上行三和弦（宝可梦捕获 fanfare 式手势，原创）。
 
-## 曲式与层次表（v2）
+## 虚拟歌姬歌唱版（新增）
 
-| 段落 | 小节 | 层叠 |
-|---|---|---|
-| Intro | 0 | 侧链垫 + 心跳鼓 → 4 小节后 riff+律动，钩子预告（主唱+钟琴+12） |
-| A1 | 8 | 放克贝斯 + EP 钉 + 鼓 + 主唱 |
-| Pre | 24 | 加琶音（后 2 小节上移八度），末小节 riser 双滚奏+贝斯抽空 |
-| B1 | 28 | drop：双钢琴驱动 + sub 低音 + 和弦钉 + 主唱加倍 + 四踩拍手 |
-| A2 | 40 | 加闷音吉他、琶音常驻、低垫 |
-| B2 | 60 | 加钟琴对钩子（后 4 小节） |
-| Break | 72 | 减到垫+贝斯+EP → 琶音渐强 → 末小节全队抽空只留爬音 |
-| B3/B3' | 84/92 | 升半音；B3' 换整条对旋律 + 钟琴全开，末句爬到 A5 |
-| Outro | 100 | 钩子淡出 + 两次全乐队 hit |
+| 文件 | 用途 |
+|---|---|
+| `vocal_project.ust` | **OpenUTAU / UTAU 直接打开**，日文假名已逐音填好（含休止），选好声库即可导出人声 wav |
+| `vocal_lead.mid` | 纯主旋律 MIDI（SynthV/VOCALOID 用户导入用） |
+| `lyrics_v4.txt` | 全词假名 + 分段标注 |
 
-## 接虚拟歌姬 / 人声音源
+- 歌词主题: 电光火花×冒险出发（びりびり ひかって きみと いく…），假名一音一符；
+- 人声版做法: OpenUTAU 渲染 `vocal_project.ust` → 人声 wav 与 `complete.mp3` 对齐
+  （同为 160bpm，从头对齐即可）→ DAW 里人声 -6dB 叠在伴奏上；
+- 声库建议: 日文 CV 或 中文声库均可（UST 为 UTF-8，OpenUTAU 原生支持）。
 
-1. **OpenUTAU / SynthV**: 导入 `vocal_lead.mid`（A 大调 150bpm，含终段移调）填词即可；
-2. **FL 内模拟**: Lead Vocal 通道换 FLEX Vocal / DirectWave 人声采样；
-3. 不加人声：`complete.mp3` 即纯伴奏（合成器占位主唱位）。
+## 编曲层（沿用 v3 音墙）
+
+双手 16 分钢琴墙（LH 八度泵+run / RH 脉冲）、锯齿和弦墙（终段脉冲化）、合唱 Aahs 三度
+和声、Ooh 长音垫、Vocal Chop、恒 8 分驱动贝斯（sub+滑音）、段落头弦乐 impact、
+副歌四踩+全反拍开镲+鬼音、终副歌钟琴对旋律（C#6-A5 线条）。
 
 ## FL 音色替换（GM → 建议）
 
-同 v1（见下表），另注意：Piano Drive 拆了 L/R 两轨，建议 pan 46/82 各挂一个
-FL Keys，右轨 -3dB；Warm Pad 换音色后可挂真 sidechain（Fruity Limiter 侧链到鼓组）。
-
-| 轨道 | GM | 换成 |
-|---|---|---|
-| Lead Vocal | 81 | 虚拟歌姬 / 人声音源 |
-| Lead Double | 80 | Sytrus 超锯齿（-6dB） |
-| Glockenspiel | 9 | FLEX Mallets（亮脆款） |
-| Piano Drive L/R | 0 | FL Keys Grand ×2 |
-| E.Piano | 4 | FL Keys Rhodes |
-| Arp Synth | 81 | Sytrus/3xOsc 方波琶音 |
-| Riff Guitar | 29 | FLEX 过载 |
-| Slap Bass | 33 | BooBass + 轻过载 |
-| Warm Pad | 89 | FLEX Warm Pad + 侧链 |
+同 v3：Lead Vocal→虚拟歌姬/人声源；Lead Harmony→FLEX Choir；Ooh Pad→Voice Oohs；
+Piano LH/RH→FL Keys ×2；Saw Wall→Sytrus 超锯齿（-8dB）；Vocal Chop→方波 chop；
+Slap Bass→BooBass+过载；Strings Hit→FLEX Strings；鼓→drum_synth.wav 或 FPC 电子套鼓。
