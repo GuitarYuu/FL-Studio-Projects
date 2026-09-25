@@ -1,49 +1,22 @@
-# 02「终将成春」 — ずっと真夜中でいいのに。（ZUTOMAYO）风格致敬 ×《终将成为你》
+# きみと春めき（与你的春之初）— 原「终将成春」ずとまよ风格致敬 ×《终将成为你》
 
-- **速度/调/拍**: 142 BPM · F♯ 小调（副歌转关系大调 A） · 4/4 · 约 3'03"
-- **概念**: 主歌 16 分切分 = 对不齐的心跳与踌躇；副歌转 A 大调 = "和你在一起时的春天"；
-  末段整体升全音（→B 大调）= 两份心意重迭；结尾一记和弦急停 = 没说出口的那句话。
-- 生成脚本: `_compose\song2_yagate_haru.py`
+F♯ 小调（副歌 A 大调，末段 B 大调）· 142 BPM · 4/4 · 3'03"
 
-## 曲式（小节起点）
+## 版本演进（旧版均在 git 历史）
+| 版本 | 内容 |
+|---|---|
+| v1（本文件夹 `*_complete.mid`/`*_melody.flp`） | 纯器乐版：16 分放克 + 关系大调副歌 + 末段升全音 + 急停 |
+| v2 | Sinsy DNN 歌声（音色有年代感，已被替换） |
+| v3 | NEUTRINO Tau v3 琴葉葵演唱，干净伴奏 |
+| **v4（最新，`*_v4.*`）** | **层次升级**：弦乐组/钟琴音乐盒/回调合成器/16 分琶音四层 + NEUTRINO 双唱层 |
 
-| 段落 | 小节 | 内容 |
-|---|---|---|
-| Intro | 0 | 贝斯+吉他+电钢琴 **同度 riff**（2 小节循环），第 3 小节鼓进 |
-| V1 | 8 | 切分主唱（16 分弱起），闷音吉他 16 分、放克贝斯 |
-| Pre | 24 | Bm7→C#7→D→E 逐级抬升，末小节军鼓滚奏 |
-| C1 | 32 | A 大调副歌，钩子「C#5–A4 / F#5 落 D5」 |
-| ITL | 40 | riff 间奏 |
-| V2 / Pre / C2 | 44 / 60 / 68 | 再现；C2 末加 adlib（G#5–A5–B5） |
-| Break | 76 | 半拍分解 + 电钢琴长和弦，末 2 小节 build |
-| C3 + tag | 92 | **升全音到 B 大调**，末 4 小节 tag |
-| Outro | 104 | riff 两遍后**全乐队急停** |
+## 人声版（v2-v4）演唱: NEUTRINO Tau v3 + 琴葉葵（A.I.VOICE）
+- 主旋律重写：音域收进 E4–F#5，副歌 hook = 同音三连 + 级进下落
+- `*_vocal_main.musicxml` 主旋律谱（假名歌词随谱）/ `*_vocal_harm.musicxml` 和声谱
+- 歌词中日对照见 `lyrics_v2.md`；乐谱册见仓库 `乐谱与歌词/01_*.html`
 
-## 核心和声
-
-- 主歌: `F#m7 – Dmaj7 – Bm7 – C#7sus4/C#7`（小调 iv–VII–V 功能圈）
-- 预副歌: `Bm7 – C#7 – Dmaj7 – Eadd9`（全音上行链条）
-- 副歌: `A – E/G# – F#m7 – Dmaj7 – A/C# – D – E – E7`（下行贝斯 A→G#→F#→E）
-- Break: `F#m9 – Dmaj7 – Bm7 – C#7#9`（#9 是 ACA-ne 式的"辣味"）
-
-## 风格要点（对照 ZUTOMAYO 的写法）
-
-1. 16 分放克底: 闷音吉他反拍重音、贝斯八度+半音接近、鼓组军鼓鬼音（vel≈30）；
-2. riff 三件套同度（bass 低八度 / 吉他高八度 / EP 打点），带滑音 pitch bend；
-3. 主唱线大量 16 分弱起与跳进（C#5→F#5），副歌换关系大调提亮；
-4. 末段升全音 + 急停收尾。
-
-## FL Studio 里替换音色（GM → 建议）
-
-| 轨道 | GM | 换成 |
-|---|---|---|
-| Riff Guitar | 29 | FLEX 电吉他过载 / FL Slap? 建议 Guitar Rig 类；riff 记得紧贴节拍器 |
-| Slap Bass | 33 | BooBass + Fruity Blood Overdrive（或 FLEX Finger Bass） |
-| E.Piano | 4 | FL Keys Rhodes（副歌加 tremolo 轻） |
-| Mute Guitar | 27 | FLEX Muted/Funk Guitar |
-| Lead Vocal | 80 | 音源里最"咬字"的 lead（Harmor 共振峰调亮） |
-| Synth Stab | 81 | Sytrus 方波 stab（音量低） |
-| Warm Pad | 89 | FLEX Warm Pad / Sytrus |
-| （鼓已剥离） | — | drum_synth.wav；换 FPC 建议选干、紧的放克套鼓 |
-
-混音起手：总线压缩要快 attack；贝斯与底鼓 sidechain；riff 三轨 pan 微散（吉他 35%/EP 45%）。
+## 文件
+- `02_..._v4.flp` / `_v4.mid` / `_v4_melody.mid` — v4 层次升级版工程与 MIDI
+- `02_..._vocal_main.mid/.musicxml`、`_vocal_harm.mid/.musicxml` — 人声分轨
+- `gen_song.py`（v1 器乐）、`gen_song_v2_vocal.py`（人声版旋律+歌词+MusicXML）、`gen_song_v4_layers.py`（v4 加层）+ `midilib.py`
+- 成品 mp3 未入库（本地 `05_风格致敬三首/02_.../complete_v4.mp3`）
